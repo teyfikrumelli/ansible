@@ -1,0 +1,14 @@
+- name: Fetch starship
+  ansible.builtin.uri:
+    url: https://starship.rs/install.sh
+    return_content: yes
+  register: starship_installer
+  tags:
+    - starship
+
+- name: Run starship installer
+  ansible.builtin.shell:
+    cmd: sh -s -- -y
+    stdin: "{{ starship_installer.content }}"
+  tags:
+    - starship

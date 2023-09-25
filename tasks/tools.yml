@@ -1,0 +1,16 @@
+- name: Install productivity tools
+  become: true
+  ansible.builtin.apt:
+    name:
+      - fzf
+      - bat
+      - exa
+      - ripgrep
+      - tldr
+      - screenkey
+      - slop # required for screenkey
+      - gimp
+      - shutter
+      - blueman
+  tags:
+    - tools 

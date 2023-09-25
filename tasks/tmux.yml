@@ -1,0 +1,16 @@
+- name: Install tmux
+  ansible.builtin.apt:
+    name: tmux
+    state: present
+  become: true
+  tags:
+    - tmux
+
+- name: Clone TPM repository
+  ansible.builtin.git:
+    repo: 'https://github.com/tmux-plugins/tpm.git'
+    dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
+  become: true
+  become_user: "{{ lookup('env', 'USER') }}"
+  tags:
+    - tmux

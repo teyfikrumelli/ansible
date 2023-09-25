@@ -1,0 +1,32 @@
+- name: Install git 
+  become: true
+  ansible.builtin.apt:
+    name: git
+  tags:
+    - dotfiles
+
+- name: Install stow 
+  become: true
+  ansible.builtin.apt:
+    name: stow
+  tags:
+    - dotfiles
+
+- name: Unstow dotfiles
+  ansible.builtin.shell: cd $HOME/dotfiles && stow -D "{{ item }}" 
+  loop: "{{ dotfiles_stow_folders }}"
+  tags:
+    - dotfiles
+
+- name: Clone dotfiles repository
+  ansible.builtin.git:
+    repo: "{{ dotfiles_repo }}"
+    dest: "{{ lookup('env', 'HOME') }}/dotfiles"
+  tags:
+    - dotfiles
+
+- name: Stow dotfiles
+  ansible.builtin.shell: cd $HOME/dotfiles && stow "{{ item }}" 
+  loop: "{{ dotfiles_stow_folders }}"
+  tags:
+    - dotfiles

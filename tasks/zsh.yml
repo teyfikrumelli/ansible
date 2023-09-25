@@ -1,0 +1,28 @@
+- name: Install oh-my-zsh
+  ansible.builtin.include_role:
+    name: gantsign.oh-my-zsh
+  vars:
+    users:
+      - username: "{{ lookup('env', 'USER') }}"
+  tags:
+    - zsh
+
+- name: Change shell to zsh
+  become: true
+  ansible.builtin.shell: chsh -s $(which zsh)
+  tags:
+    - zsh
+
+- name: Install zsh-autosuggestions plugin
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  tags:
+    - zsh
+
+- name: Install zsh-syntax-highlighting plugin
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+  tags:
+    - zsh

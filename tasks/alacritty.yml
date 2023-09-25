@@ -1,0 +1,27 @@
+- name: add alacritty apt repository
+  ansible.builtin.apt_repository:
+    repo: ppa:aslatter/ppa
+  tags:
+    - alacritty
+
+- name: install alacritty
+  ansible.builtin.apt:
+    name: alacritty
+    state: present
+  tags:
+    - alacritty
+
+- name: ensure fonts directory exists
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.fonts"
+    state: directory
+  tags:
+    - alacritty
+
+- name: Download SourceCodePro
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/SourceCodePro.zip
+    dest: "{{ lookup('env', 'HOME') }}/.fonts/"
+    remote_src: yes
+  tags:
+    - alacritty

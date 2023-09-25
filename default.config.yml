@@ -1,0 +1,22 @@
+# oh-my-zsh
+oh_my_zsh_theme: robbyrussel
+oh_my_zsh_plugins:
+  - git
+  - zsh-autosuggestions
+  - zsh-syntax-highlighting
+oh_my_zsh_write_zshrc: false 
+oh_my_zsh_mode: auto
+oh_my_zsh_frequency: 7
+
+# go
+golang_gopath: "{{ lookup('env', 'HOME') }}/go"
+golang_version: "1.21.0"
+
+# dotfiles
+dotfiles_repo: https://github.com/teyfikrumelli/dotfiles.git
+dotfiles_stow_folders:
+  - alacritty
+  - nvim
+  - starship
+  - tmux
+  - zsh

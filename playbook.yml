@@ -1,0 +1,19 @@
+---
+- name: Configure host
+  hosts: all
+
+  vars_files:
+    - default.config.yml
+ 
+  tasks:
+    - import_tasks: tasks/alacritty.yml
+    - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/tmux.yml
+    - import_tasks: tasks/starship.yml
+    - import_tasks: tasks/tools.yml
+    - import_tasks: tasks/neovim.yml
+    - import_tasks: tasks/go.yml
+    - import_tasks: tasks/lua.yml
+    - import_tasks: tasks/docker.yml
+    - import_tasks: tasks/snap.yml
+    - import_tasks: tasks/dotfiles.yml
