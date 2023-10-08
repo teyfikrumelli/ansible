@@ -1,19 +1,16 @@
 - name: Install lua
-  become: true
   ansible.builtin.apt:
     name: lua5.2
   tags:
     - lua
 
 - name: Install luajit
-  become: true
   ansible.builtin.apt:
     name: luajit
   tags:
     - lua
 
 - name: Install luarocks
-  become: true
   ansible.builtin.apt:
     name: luarocks
   tags:

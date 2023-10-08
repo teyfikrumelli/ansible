@@ -1,5 +1,4 @@
 - name: Install spotify
-  become: true
   community.general.snap:
     name: spotify
   tags:

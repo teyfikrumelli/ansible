@@ -1,5 +1,4 @@
 - name: Install required system packages for Docker
-  become: true
   ansible.builtin.apt:
     pkg:
       - apt-transport-https
@@ -15,7 +14,6 @@
     - docker
 
 - name: Add Docker GPG apt Key
-  become: true
   ansible.builtin.get_url:
     url: https://download.docker.com/linux/ubuntu/gpg
     dest: /etc/apt/keyrings/docker.asc
@@ -25,7 +23,6 @@
     - docker
 
 - name: Add Docker Repository
-  become: true
   ansible.builtin.apt_repository:
     repo: deb [signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu focal stable
     state: present
@@ -33,7 +30,6 @@
     - docker
 
 - name: Update apt and install docker-ce and docker-compose
-  become: true
   ansible.builtin.apt:
     pkg:
       - docker-ce
@@ -53,12 +49,10 @@
   ansible.builtin.service:
     name: docker
     state: started
-  become: true
   tags:
     - docker
 
 - name: Add docker group
-  become: true
   ansible.builtin.group:
     name: docker
     state: present
@@ -66,7 +60,6 @@
     - docker
 
 - name: Add current user to docker group
-  become: true
   ansible.builtin.user:
     name: "{{ lookup('env', 'USER') }}"
     group: docker

@@ -8,7 +8,6 @@
     - zsh
 
 - name: Change shell to zsh
-  become: true
   ansible.builtin.shell: chsh -s $(which zsh)
   tags:
     - zsh

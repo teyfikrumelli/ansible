@@ -1,5 +1,4 @@
 - name: Install productivity tools
-  become: true
   ansible.builtin.apt:
     name:
       - fzf
