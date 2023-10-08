@@ -1,0 +1,11 @@
+- name: Install Node.js
+  ansible.builtin.apt:
+    name: nodejs
+  tags:
+    - nodejs
+
+- name: Install Npm
+  ansible.builtin.apt:
+    name: npm
+  tags:
+    - nodejs
