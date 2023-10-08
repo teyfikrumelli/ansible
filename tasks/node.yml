@@ -1,0 +1,8 @@
+- name: Install Node.js
+  ansible.builtin.snap:
+    name: node
+    classic: true
+    channel: 18
+  tags:
+    - node
+
