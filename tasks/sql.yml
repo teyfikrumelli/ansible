@@ -1,0 +1,6 @@
+- name: Install postgresql client 
+  ansible.builtin.apt:
+    name:
+      - postgresql 
+  tags:
+    - sql

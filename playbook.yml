@@ -18,3 +18,4 @@
     - import_tasks: tasks/snap.yml
     - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/node.yml
+    - import_tasks: tasks/sql.yml
