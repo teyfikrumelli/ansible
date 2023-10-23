@@ -11,5 +11,7 @@
       - gimp
       - shutter
       - blueman
+      - httpie
+      - jq
   tags:
     - tools 
