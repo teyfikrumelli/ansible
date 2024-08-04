@@ -1,6 +1,7 @@
 - name: add alacritty apt repository
   ansible.builtin.apt_repository:
     repo: ppa:aslatter/ppa
+    codename: 'jammy'
   tags:
     - alacritty
 
