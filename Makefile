@@ -3,7 +3,7 @@
 install-ansible:
 	@echo "Installing ansible..."
 	sudo apt update
-	sudo apt install -y ansible-playbook
+	sudo apt install -y ansible
 
 install-dependencies::
 	@echo "Installing dependencies..."
