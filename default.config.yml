@@ -10,7 +10,7 @@ oh_my_zsh_frequency: 7
 
 # go
 golang_gopath: "{{ lookup('env', 'HOME') }}/go"
-golang_version: "1.21.0"
+golang_version: "1.22.0"
 
 # dotfiles
 dotfiles_repo: https://github.com/teyfikrumelli/dotfiles.git

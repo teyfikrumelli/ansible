@@ -3,14 +3,10 @@
     name:
       - fzf
       - bat
-      - exa
+      - eza
       - ripgrep
       - tldr
-      - screenkey
-      - slop # required for screenkey
       - gimp
-      - shutter
-      - blueman
       - httpie
       - jq
   tags:
