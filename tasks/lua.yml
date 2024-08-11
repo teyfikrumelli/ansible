@@ -4,12 +4,6 @@
   tags:
     - lua
 
-- name: Install luajit
-  ansible.builtin.apt:
-    name: luajit
-  tags:
-    - lua
-
 - name: Install luarocks
   ansible.builtin.apt:
     name: luarocks

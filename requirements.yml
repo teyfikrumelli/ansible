@@ -3,4 +3,3 @@ roles:
   - name: gantsign.oh-my-zsh
   - name: kylebebak.tmux
   - name: gantsign.golang
-  - name: mattupstate.lua

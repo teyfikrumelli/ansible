@@ -1,13 +1,50 @@
-- name: Add neovim ppa 
-  ansible.builtin.apt_repository: 
-    repo: 'ppa:neovim-ppa/unstable' 
+- name: Remove existing Neovim package
+  apt:
+    name: neovim
+    state: absent
+  tags:
+    - neovim
+
+- name: Autoremove unused packages
+  apt:
+    autoremove: yes
+    purge: yes
+  tags:
+    - neovim
+
+- name: Ensure curl is installed
+  apt:
+    name: curl
     state: present
   tags:
     - neovim
 
-- name: Install neovim from ppa
-  ansible.builtin.apt: 
-    name: neovim
-    state: present 
+- name: Download Neovim AppImage
+  get_url:
+    url: "https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage"
+    dest: "/tmp/nvim.appimage"
+    mode: '0755'
   tags:
     - neovim
+
+- name: Move Neovim AppImage to /usr/local/bin
+  copy:
+    src: "/tmp/nvim.appimage"
+    dest: "/usr/local/bin/nvim"
+    remote_src: yes
+    mode: '0755'
+  tags:
+    - neovim
+
+- name: Verify Neovim installation
+  command: nvim --version
+  register: neovim_version
+  tags:
+    - neovim
+
+- name: Display Neovim version
+  debug:
+    msg: "{{ neovim_version.stdout }}"
+  tags:
+    - neovim
+
