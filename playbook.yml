@@ -12,6 +12,7 @@
     - import_tasks: tasks/starship.yml
     - import_tasks: tasks/tools.yml
     - import_tasks: tasks/neovim.yml
+    - import_tasks: tasks/postman.yml
     - import_tasks: tasks/go.yml
     - import_tasks: tasks/lua.yml
     - import_tasks: tasks/docker.yml

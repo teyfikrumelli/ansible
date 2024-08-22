@@ -1,0 +1,5 @@
+- name: Install postman
+  ansible.builtin.include_role:
+    name: gantsign.postman
+  tags:
+    - postman
