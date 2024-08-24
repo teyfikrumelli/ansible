@@ -20,3 +20,6 @@ dotfiles_stow_folders:
   - starship
   - tmux
   - zsh
+
+  # nodejs
+nodejs_version: 20.x

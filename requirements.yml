@@ -4,3 +4,4 @@ roles:
   - name: kylebebak.tmux
   - name: gantsign.golang
   - name: gantsign.postman
+  - name: geerlingguy.nodejs
